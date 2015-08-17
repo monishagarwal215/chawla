@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Chawla</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="parse_app_id">pgLznwgqZ1eZlqaJ6vMXdWDa1zcSCovFPUmeUJWa</string>
+    <string name="parse_client_key">anLIBXTPMX6H73YxoXyBgoIbfbWkUjxBRP9K7E3u</string>
+
+</resources>

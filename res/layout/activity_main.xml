@@ -1,0 +1,87 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
+
+    <ImageSwitcher
+        android:id="@+id/imgTopLeft"
+        android:layout_width="@dimen/add_width"
+        android:layout_height="@dimen/add_height"
+        android:layout_alignParentTop="true" />
+
+    <ImageSwitcher
+        android:id="@+id/imgTopRight"
+        android:layout_width="@dimen/add_width"
+        android:layout_height="@dimen/add_height"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+
+    <ImageSwitcher
+        android:id="@+id/imgBottomLeft"
+        android:layout_width="@dimen/add_width"
+        android:layout_height="@dimen/add_height"
+        android:layout_alignParentBottom="true" />
+
+    <ImageSwitcher
+        android:id="@+id/imgBottomRight"
+        android:layout_width="@dimen/add_width"
+        android:layout_height="@dimen/add_height"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/imgTopLeft"
+        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@id/imgTopRight"
+        android:layout_toRightOf="@id/imgTopLeft"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageSwitcher
+                android:id="@+id/imgMenuLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/layoutMenuLeft"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingRight="5dp"
+                android:paddingTop="5dp"
+                android:visibility="gone" >
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageSwitcher
+                android:id="@+id/imgMenuRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/layoutMenuRight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:visibility="gone" >
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
