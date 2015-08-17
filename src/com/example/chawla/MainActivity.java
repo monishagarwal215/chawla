@@ -33,6 +33,8 @@ public class MainActivity extends Activity implements ViewFactory {
 	private ImageSwitcher		imgMenuRight;
 	private LinearLayout		layoutMenuLeft;
 	private LinearLayout		layoutMenuRight;
+	private TextView menuLeft,menuRight;
+	
 	private Handler				handler			= new Handler();
 	private static final int[]	TOP_RIGHT		= { R.drawable.add_01,
 			R.drawable.add_02					};
@@ -100,7 +102,10 @@ public class MainActivity extends Activity implements ViewFactory {
 
 		imgMenuRight.setInAnimation(this, R.anim.slide_up);
 		imgMenuRight.setOutAnimation(this, R.anim.slide_down);
-
+		
+		menuLeft=(TextView)findViewById(R.id.menu_left);
+		menuRight=(TextView)findViewById(R.id.menu_right);
+		
 		handler.postDelayed(timerRunnable, 2000);
 
 		getMenu();
@@ -109,6 +114,7 @@ public class MainActivity extends Activity implements ViewFactory {
 	}
 
 	private void getMenu1() {
+		menuRight.setText("Menu2");
 		ParseQuery<ParseObject> querry = ParseQuery.getQuery(ApiConstants.ENTITY.MENU1);
 		querry.whereEqualTo(ApiConstants.PARAMS.TYPE, "menu");
 		querry.findInBackground(new FindCallback<ParseObject>() {
@@ -123,6 +129,7 @@ public class MainActivity extends Activity implements ViewFactory {
 	}
 
 	private void getMenu() {
+		menuLeft.setText("Menu1");
 		ParseQuery<ParseObject> querry = ParseQuery.getQuery(ApiConstants.ENTITY.MENU);
 		querry.whereEqualTo(ApiConstants.PARAMS.TYPE, "menu");
 		querry.findInBackground(new FindCallback<ParseObject>() {
@@ -135,8 +142,37 @@ public class MainActivity extends Activity implements ViewFactory {
 			}
 		});
 	}
+	private void getMenu3() {
+		menuLeft.setText("Menu3");
+		ParseQuery<ParseObject> querry = ParseQuery.getQuery("Menu3");
+		querry.whereEqualTo(ApiConstants.PARAMS.TYPE, "menu");
+		querry.findInBackground(new FindCallback<ParseObject>() {
+
+			@Override
+			public void done(List<ParseObject> parseObject, ParseException e) {
+				if (e == null) {
+					addMenu(layoutMenuLeft, parseObject);
+				}
+			}
+		});
+	}
+	private void getMenu2() {
+		menuRight.setText("Menu4");
+		ParseQuery<ParseObject> querry = ParseQuery.getQuery("Menu2");
+		querry.whereEqualTo(ApiConstants.PARAMS.TYPE, "menu");
+		querry.findInBackground(new FindCallback<ParseObject>() {
+
+			@Override
+			public void done(List<ParseObject> parseObject, ParseException e) {
+				if (e == null) {
+					addMenu(layoutMenuRight, parseObject);
+				}
+			}
+		});
+	}
 
 	protected void addMenu(LinearLayout linearLayout, List<ParseObject> parseObject) {
+		linearLayout.removeAllViews();
 		for (ParseObject temp : parseObject) {
 			View rowView = mInflater.inflate(R.layout.layout_menu, null);
 			TextView txtMenuName = (TextView) rowView.findViewById(R.id.txtMenuName);
@@ -213,6 +249,11 @@ public class MainActivity extends Activity implements ViewFactory {
 			}
 			layoutMenuLeft.startAnimation(animationFadeIn);
 			layoutMenuLeft.startAnimation(animationFadeOut);
+			if(a%2==0){
+				getMenu3();
+			}else{
+				getMenu();
+			}
 			break;
 		case R.id.imgMenuRight:
 			imgMenuRight.setImageResource(MENU_RIGHT[a]);
@@ -221,6 +262,12 @@ public class MainActivity extends Activity implements ViewFactory {
 			}
 			layoutMenuRight.startAnimation(animationFadeIn);
 			layoutMenuRight.startAnimation(animationFadeOut);
+			if(a%2==0){
+				getMenu2();
+			}else{
+				
+				getMenu1();
+			}
 			a++;
 			break;
 		default:

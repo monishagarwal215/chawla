@@ -1,8 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg" >
+    android:background="#a0c0ba"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:layout_width="240dp"
+        android:layout_height="90dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/header" />
 
     <ImageSwitcher
         android:id="@+id/imgTopLeft"
@@ -39,47 +46,108 @@
         android:layout_toLeftOf="@id/imgTopRight"
         android:layout_toRightOf="@id/imgTopLeft"
         android:orientation="horizontal"
+        android:paddingBottom="16dp"
         android:weightSum="2" >
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_bg" >
+
+            <TextView
+                android:id="@+id/menu_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="4dp"
+                android:textColor="#529b92"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view_1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/darker_gray" />
+
+            <View
+                android:id="@+id/view_2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/view_1"
+                android:layout_marginTop="2dp"
+                android:background="@android:color/darker_gray" />
 
             <ImageSwitcher
                 android:id="@+id/imgMenuLeft"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_2" />
 
             <LinearLayout
                 android:id="@+id/layoutMenuLeft"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/view_2"
                 android:orientation="vertical"
-                android:paddingRight="5dp"
-                android:paddingTop="5dp"
-                android:visibility="gone" >
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp"
+                android:visibility="visible" >
             </LinearLayout>
         </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/rectangle_bg" >
+
+            <TextView
+                android:id="@+id/menu_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="4dp"
+                android:textColor="#529b92"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/view_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/darker_gray" />
+
+            <View
+                android:id="@+id/view_4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/view_3"
+                android:layout_marginTop="2dp"
+                android:background="@android:color/darker_gray" />
 
             <ImageSwitcher
                 android:id="@+id/imgMenuRight"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/view_4" />
 
             <LinearLayout
                 android:id="@+id/layoutMenuRight"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@id/view_4"
                 android:orientation="vertical"
-                android:paddingLeft="5dp"
-                android:paddingTop="5dp"
-                android:visibility="gone" >
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:paddingTop="8dp"
+                android:visibility="visible" >
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
